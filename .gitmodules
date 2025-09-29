@@ -1,0 +1,3 @@
+[submodule "external/partio"]
+	path = external/partio
+	url = https://github.com/wdas/partio.git

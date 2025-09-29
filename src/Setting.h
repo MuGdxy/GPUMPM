@@ -9,7 +9,7 @@ constexpr const T D_inverse = 4.f * one_over_dx * one_over_dx;
 constexpr int Dim = 3;
 
 // 0: explicit 1: implicit
-#define MPM_SIM_TYPE 0
+#define MPM_SIM_TYPE 1
 
 // 0: flip 1: apic 2: mls
 #define TRANSFER_SCHEME 1

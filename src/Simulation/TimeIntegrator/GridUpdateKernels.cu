@@ -135,7 +135,7 @@ namespace mn {
 			local_max_squared = data;
         
 		for (uint32_t offset = 1; offset & 0x1f; offset <<= 1) {
-            T tmp = __shfl_down(local_max_squared, offset);
+            T tmp = __shfl_down_sync(0xFFFFFFFF,local_max_squared, offset);
             if (tmp > local_max_squared)
                 local_max_squared = tmp;
         }
@@ -162,7 +162,7 @@ namespace mn {
 		}
 
 		for (int offset = warpSize / 2; offset > 0; offset /= 2)
-			sum += __shfl_down(sum, offset);
+			sum += __shfl_down_sync(0xFFFFFFFF,sum, offset);
 		if (threadIdx.x % warpSize == 0)    atomicAdd(_innerProduct, sum);
     }
 
